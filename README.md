@@ -1,6 +1,6 @@
 # BIO-312-extra-credit
-Lab 3
-```ncbi-acc-download -F fasta -m protein "NP_859076.3"
+```Lab 3
+ncbi-acc-download -F fasta -m protein "NP_859076.3"
 This command downlaods the query sequence 
 blastp -db ../allprotein.fas -query NP_859076.3.fa -outfmt 0 -max_hsps 1 -out mygene.blastp.typical.out,less globins.blastp.typical.out
 This command performs the BLAST search
@@ -11,7 +11,8 @@ This command filters the BLAST output for high-scoring putative homologs
 wc -l mygene.blastp.detail.filtered.out
 Counts the amount of BLAST hits 
 grep -o -E "^[A-Z]\.[a-z]+" mygene.blastp.detail.filtered.out  | sort | uniq -c
-Counts the amount of paralogs```
+Counts the amount of paralogs
+```
 
 
 Lab 4 
