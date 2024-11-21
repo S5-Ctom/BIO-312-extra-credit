@@ -1,6 +1,6 @@
 # BIO-312-extra-credit
 Lab 3
-ncbi-acc-download -F fasta -m protein "NP_859076.3"
+```ncbi-acc-download -F fasta -m protein "NP_859076.3"
 This command downlaods the query sequence 
 blastp -db ../allprotein.fas -query NP_859076.3.fa -outfmt 0 -max_hsps 1 -out mygene.blastp.typical.out,less globins.blastp.typical.out
 This command performs the BLAST search
@@ -11,9 +11,9 @@ This command filters the BLAST output for high-scoring putative homologs
 wc -l mygene.blastp.detail.filtered.out
 Counts the amount of BLAST hits 
 grep -o -E "^[A-Z]\.[a-z]+" mygene.blastp.detail.filtered.out  | sort | uniq -c
-Counts the amount of paralogs
+Counts the amount of paralogs```
 Lab 4 
-seqkit grep --pattern-file ~/lab03-$MYGIT/globins/globins.blastp.detail.filtered.out ~/lab03-$MYGIT/allprotein.fas | seqkit grep -v -p "carpio" > ~/lab04-$MYGIT/globins/globins.homologs.fas
+```seqkit grep --pattern-file ~/lab03-$MYGIT/globins/globins.blastp.detail.filtered.out ~/lab03-$MYGIT/allprotein.fas | seqkit grep -v -p "carpio" > ~/lab04-$MYGIT/globins/globins.homologs.fas
 obtain the sequences that are in the BLAST output file from lab 3
 muscle -align ~/lab04-$MYGIT/mynewgene/mynewgene.homologs.fas -output ~/lab04-$MYGIT/mynewgene/mynewgene.homologs.al.fas
 make a multiple sequence alignment using muscle
@@ -29,7 +29,7 @@ alignbuddy -dinv 'ambig' ~/lab04-$MYGIT/mynewgene/mynewgene.homologs.al.fas | al
  average percent identity using t_coffee
   alignbuddy -pi ~/lab04-$MYGIT/globins/globins.homologs.al.fas | awk ' (NR>2)  { for (i=2;i<=NF  ;i++){ sum+=$i;num++} }
      END{ print(100*sum/num) } '
-      average percent identity using alignbuddy.
+      average percent identity using alignbuddy.```
       Lab 5
       sed 's/ //g' ~/lab04-$MYGIT/mynewgene/mynewgene.homologs.al.fas | seqkit grep -v -r -p "dupelabel" > ~/lab05-$MYGIT/mynewgene/NP_859076.3.homologsf.al.fas 
       remove any sequence that contains a duplicate label tag
