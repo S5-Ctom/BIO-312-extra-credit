@@ -12,8 +12,10 @@ wc -l mygene.blastp.detail.filtered.out
 Counts the amount of BLAST hits 
 grep -o -E "^[A-Z]\.[a-z]+" mygene.blastp.detail.filtered.out  | sort | uniq -c
 Counts the amount of paralogs```
+
+
 Lab 4 
-```seqkit grep --pattern-file ~/lab03-$MYGIT/globins/globins.blastp.detail.filtered.out ~/lab03-$MYGIT/allprotein.fas | seqkit grep -v -p "carpio" > ~/lab04-$MYGIT/globins/globins.homologs.fas
+seqkit grep --pattern-file ~/lab03-$MYGIT/globins/globins.blastp.detail.filtered.out ~/lab03-$MYGIT/allprotein.fas | seqkit grep -v -p "carpio" > ~/lab04-$MYGIT/globins/globins.homologs.fas
 obtain the sequences that are in the BLAST output file from lab 3
 muscle -align ~/lab04-$MYGIT/mynewgene/mynewgene.homologs.fas -output ~/lab04-$MYGIT/mynewgene/mynewgene.homologs.al.fas
 make a multiple sequence alignment using muscle
